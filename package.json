@@ -1,0 +1,91 @@
+{
+  "name": "moba-engine",
+  "version": "1.0.0",
+  "description": "Professional game engine for seamless mobile app/game and web development on native mobile devices",
+  "main": "dist/moba-engine.js",
+  "module": "dist/moba-engine.esm.js",
+  "types": "dist/moba-engine.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:wasm": "cargo build --release --target wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/release/moba_engine.wasm --out-dir src/wasm/pkg",
+    "preview": "vite preview",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --collectCoverageFrom='src/**/*.ts'",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "test:performance": "node tests/performance.bench.js",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write 'src/**/*.{ts,tsx,json,md}'",
+    "validate": "npm run lint && npm run test",
+    "export:sketchware": "node scripts/export-sketchware.js",
+    "export:project": "node scripts/export-project.js",
+    "import:project": "node scripts/import-project.js",
+    "clone:project": "node scripts/clone-project.js",
+    "doc": "typedoc --out docs/api src",
+    "bundle": "webpack --mode production",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "game-engine",
+    "mobile",
+    "optimization",
+    "gesture-recognition",
+    "builder",
+    "wasm",
+    "sketchware"
+  ],
+  "author": "hbowo430-sudo",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "@capacitor/app": "^5.0.6",
+    "@capacitor/core": "^5.0.6",
+    "@capacitor/device": "^5.0.6",
+    "@capacitor/filesystem": "^5.0.6",
+    "@capacitor/storage": "^5.0.6",
+    "crypto-js": "^4.1.1",
+    "eventemitter3": "^5.0.0",
+    "hammerjs": "^2.0.8",
+    "jszip": "^3.10.1",
+    "lodash-es": "^4.17.21",
+    "tslib": "^2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "@babel/preset-typescript": "^7.22.0",
+    "@cypress/schematic": "^2.5.1",
+    "@types/hammerjs": "^2.0.11",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "cypress": "^12.16.0",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.3.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hbowo430-sudo/Moba-Engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hbowo430-sudo/Moba-Engine/issues"
+  },
+  "homepage": "https://github.com/hbowo430-sudo/Moba-Engine"
+}
